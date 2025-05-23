@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="NuiScene">
+  <meta name="keywords" content="NuiScene, 3D, Scene Generation, Unbounded Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NuiScene43 Dataset</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79LS3GFLC4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-79LS3GFLC4');
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    table {
+      width: 90%;
+      margin: 5px auto;
+      border-collapse: collapse;
+      font-size: 22px;
+      text-align: center;
+      table-layout: fixed;
+    }
+    caption {
+      caption-side: top;
+      font-weight: bold;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 18px;
+      white-space: nowrap;
+    }
+    th {
+      background-color: #f9f9f9;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="icon" href="./static/images/needle.png">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <img src="./static/images/needle.png" style="vertical-align: middle; height: 1em; margin-right: 10px;">
+            Nui(縫い)Scene43 Dataset
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hanhung.github.io/">Han-Hung Lee</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sulley.cc/">Qinghong Han</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://angelxuanchang.github.io/">Angel X. Chang</a><sup>1,2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Simon Fraser University</span>
+            <span class="author-block"><sup>2</sup>Canada CIFAR AI Chair, Amii</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.16375"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/3dlg-hcvc/NuiScene"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://3dlg-hcvc.github.io/NuiScene/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Project Page</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Description</h2>
+        <div class="content has-text-justified">
+          <p>
+            The NuiScene43 dataset offers a curated collection of moderate to large artist-created outdoor scenes, filtered from Objaverse, for training and testing unbounded scene generation methods. 
+            We manually unified the scene scales and ground geometry to enable consistent joint training across all 43 scenes. 
+            Please see the paper for more details and github repos for the method and dataset above.
+            If you find this dataset useful, please consider citing our work and <a href="https://arxiv.org/abs/2212.08051">Objaverse</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <table>
+        <caption>NuiScene43 statistics.</caption>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th># Scenes</th>
+            <th># Sampleable Quad Chunks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rural/Medieval</td>
+            <td>16</td>
+            <td>6.2 M</td>
+          </tr>
+          <tr>
+            <td>Low Poly City</td>
+            <td>19</td>
+            <td>4.9 M</td>
+          </tr>
+          <tr>
+            <td>Japanese Buildings</td>
+            <td>4</td>
+            <td>2.9 M</td>
+          </tr>
+          <tr>
+            <td>Other</td>
+            <td>4</td>
+            <td>1.2 M</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+<div class="container has-text-centered is-size-6">
+  <p><strong>Note:</strong> 
+    Each ground truth scene includes a depth image, full-scene RGB render, and two zoomed-in views. 
+    Note that occupancies are later unified by setting all values below ground-level to 1. 
+    The visualizations shown are before this step; the meshes are obtained from the processed occupancy using marching cubes.</p>
+</div>
+
+<!-- ####################################################################################################################################################
+#
+#################################################################################################################################################### -->
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3">Other</h2>
+    <div class="columns is-multiline">
+
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/857673bc44c8411ca8aca7cab3be7091_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/857673bc44c8411ca8aca7cab3be7091_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/857673bc44c8411ca8aca7cab3be7091_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/857673bc44c8411ca8aca7cab3be7091_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>857673bc44c8411ca8aca7cab3be7091</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/0f73d55509644181937da3d41ba5623f_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/0f73d55509644181937da3d41ba5623f_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/0f73d55509644181937da3d41ba5623f_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/0f73d55509644181937da3d41ba5623f_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>0f73d55509644181937da3d41ba5623f</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/6ca71306801744c48cdb66f6d573258b_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/6ca71306801744c48cdb66f6d573258b_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/6ca71306801744c48cdb66f6d573258b_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/6ca71306801744c48cdb66f6d573258b_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>6ca71306801744c48cdb66f6d573258b</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/5fc65fd24ca647388d055dbc122b2c53_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/5fc65fd24ca647388d055dbc122b2c53_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/5fc65fd24ca647388d055dbc122b2c53_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/other/5fc65fd24ca647388d055dbc122b2c53_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>5fc65fd24ca647388d055dbc122b2c53</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ####################################################################################################################################################
+#
+#################################################################################################################################################### -->
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3">Japanese Buildings</h2>
+    <div class="columns is-multiline">
+
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/4a2536980b404fdcb42cb7eff9617e65_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/4a2536980b404fdcb42cb7eff9617e65_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/4a2536980b404fdcb42cb7eff9617e65_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/4a2536980b404fdcb42cb7eff9617e65_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>4a2536980b404fdcb42cb7eff9617e65</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/ee086eadd38744819350d73b37f0c2fe_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/ee086eadd38744819350d73b37f0c2fe_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/ee086eadd38744819350d73b37f0c2fe_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/ee086eadd38744819350d73b37f0c2fe_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>ee086eadd38744819350d73b37f0c2fe</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/5f1822bbb40c43b097c4c98ecc697ed2_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/5f1822bbb40c43b097c4c98ecc697ed2_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/5f1822bbb40c43b097c4c98ecc697ed2_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/5f1822bbb40c43b097c4c98ecc697ed2_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>5f1822bbb40c43b097c4c98ecc697ed2</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/f82faef8e00d48948f12627b7dd4a836_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/f82faef8e00d48948f12627b7dd4a836_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/f82faef8e00d48948f12627b7dd4a836_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/japanese/f82faef8e00d48948f12627b7dd4a836_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>f82faef8e00d48948f12627b7dd4a836</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ####################################################################################################################################################
+#
+#################################################################################################################################################### -->
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3">Rural/Medieval</h2>
+    <div class="columns is-multiline">
+      
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/19b198bb18be49498db3b647abebc755_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/19b198bb18be49498db3b647abebc755_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/19b198bb18be49498db3b647abebc755_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/19b198bb18be49498db3b647abebc755_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>19b198bb18be49498db3b647abebc755</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/885f519b5a2e417c850736d3d9cd0ef3_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/885f519b5a2e417c850736d3d9cd0ef3_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/885f519b5a2e417c850736d3d9cd0ef3_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/885f519b5a2e417c850736d3d9cd0ef3_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>885f519b5a2e417c850736d3d9cd0ef3</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e068ea6ae6bb41b4bdb51fda3091e5c4_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e068ea6ae6bb41b4bdb51fda3091e5c4_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e068ea6ae6bb41b4bdb51fda3091e5c4_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e068ea6ae6bb41b4bdb51fda3091e5c4_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>e068ea6ae6bb41b4bdb51fda3091e5c4</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e28598347055419db23d959dfb13a6f3_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e28598347055419db23d959dfb13a6f3_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e28598347055419db23d959dfb13a6f3_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/e28598347055419db23d959dfb13a6f3_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>e28598347055419db23d959dfb13a6f3</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/590b2cae8e524f17a9ddda685cd3d8c3_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/590b2cae8e524f17a9ddda685cd3d8c3_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/590b2cae8e524f17a9ddda685cd3d8c3_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/590b2cae8e524f17a9ddda685cd3d8c3_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>590b2cae8e524f17a9ddda685cd3d8c3</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/49e6306b29c74c679de8cec69473535b_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/49e6306b29c74c679de8cec69473535b_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/49e6306b29c74c679de8cec69473535b_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/49e6306b29c74c679de8cec69473535b_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>49e6306b29c74c679de8cec69473535b</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/2e18c1baa9164093ad2e99e0a904363a_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/2e18c1baa9164093ad2e99e0a904363a_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/2e18c1baa9164093ad2e99e0a904363a_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/2e18c1baa9164093ad2e99e0a904363a_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>2e18c1baa9164093ad2e99e0a904363a</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3c9f5bd1b5fe416c931ef0b1e284cf0c_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3c9f5bd1b5fe416c931ef0b1e284cf0c_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3c9f5bd1b5fe416c931ef0b1e284cf0c_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3c9f5bd1b5fe416c931ef0b1e284cf0c_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>3c9f5bd1b5fe416c931ef0b1e284cf0c</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/8a512d2ca3d546319bbc7aaa696faa45_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/8a512d2ca3d546319bbc7aaa696faa45_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/8a512d2ca3d546319bbc7aaa696faa45_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/8a512d2ca3d546319bbc7aaa696faa45_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>8a512d2ca3d546319bbc7aaa696faa45</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/6cdd292634f145d58a06c9bd9e349a14_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/6cdd292634f145d58a06c9bd9e349a14_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/6cdd292634f145d58a06c9bd9e349a14_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/6cdd292634f145d58a06c9bd9e349a14_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>6cdd292634f145d58a06c9bd9e349a14</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/4c5e4490c71344ffaa34bc4abd0cbc11_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/4c5e4490c71344ffaa34bc4abd0cbc11_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/4c5e4490c71344ffaa34bc4abd0cbc11_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/4c5e4490c71344ffaa34bc4abd0cbc11_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>4c5e4490c71344ffaa34bc4abd0cbc11</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/1a97e66594d241e9bf2d7e8ff7c967e8_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/1a97e66594d241e9bf2d7e8ff7c967e8_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/1a97e66594d241e9bf2d7e8ff7c967e8_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/1a97e66594d241e9bf2d7e8ff7c967e8_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>1a97e66594d241e9bf2d7e8ff7c967e8</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3cf5cfe07eec41fd928f1933696b35ff_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3cf5cfe07eec41fd928f1933696b35ff_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3cf5cfe07eec41fd928f1933696b35ff_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/3cf5cfe07eec41fd928f1933696b35ff_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>3cf5cfe07eec41fd928f1933696b35ff</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/801103c094c04f45897be69ef6b27bf9_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/801103c094c04f45897be69ef6b27bf9_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/801103c094c04f45897be69ef6b27bf9_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/801103c094c04f45897be69ef6b27bf9_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>801103c094c04f45897be69ef6b27bf9</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/c5b0a81b3f254606b775134123a3e1e2_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/c5b0a81b3f254606b775134123a3e1e2_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/c5b0a81b3f254606b775134123a3e1e2_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/c5b0a81b3f254606b775134123a3e1e2_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>c5b0a81b3f254606b775134123a3e1e2</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/63dd568f5bc64e8694d5f4252924c99e_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/63dd568f5bc64e8694d5f4252924c99e_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/63dd568f5bc64e8694d5f4252924c99e_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/rural/63dd568f5bc64e8694d5f4252924c99e_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>63dd568f5bc64e8694d5f4252924c99e</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ####################################################################################################################################################
+#
+#################################################################################################################################################### -->
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3">Low Poly City</h2>
+    <div class="columns is-multiline">
+
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/3b61335c2a004a9ea31c8dab59471222_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/3b61335c2a004a9ea31c8dab59471222_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/3b61335c2a004a9ea31c8dab59471222_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/3b61335c2a004a9ea31c8dab59471222_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>3b61335c2a004a9ea31c8dab59471222</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1e2f91cf7085455baea97aa9e975cea0_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1e2f91cf7085455baea97aa9e975cea0_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1e2f91cf7085455baea97aa9e975cea0_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1e2f91cf7085455baea97aa9e975cea0_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>1e2f91cf7085455baea97aa9e975cea0</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/7f671f35e9ad4149b83451a3a92a6e2e_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/7f671f35e9ad4149b83451a3a92a6e2e_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/7f671f35e9ad4149b83451a3a92a6e2e_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/7f671f35e9ad4149b83451a3a92a6e2e_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>7f671f35e9ad4149b83451a3a92a6e2e</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/040805292d1d4c929cfebdbe0007fff4_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/040805292d1d4c929cfebdbe0007fff4_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/040805292d1d4c929cfebdbe0007fff4_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/040805292d1d4c929cfebdbe0007fff4_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>040805292d1d4c929cfebdbe0007fff4</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/19919b4a2518487b9c05024eb4277ae2_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/19919b4a2518487b9c05024eb4277ae2_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/19919b4a2518487b9c05024eb4277ae2_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/19919b4a2518487b9c05024eb4277ae2_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>19919b4a2518487b9c05024eb4277ae2</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/deb4dc75e62346c19c117bf61334eeb5_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/deb4dc75e62346c19c117bf61334eeb5_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/deb4dc75e62346c19c117bf61334eeb5_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/deb4dc75e62346c19c117bf61334eeb5_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>deb4dc75e62346c19c117bf61334eeb5</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/41697300a4c643d089784b8688b2ed2c_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/41697300a4c643d089784b8688b2ed2c_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/41697300a4c643d089784b8688b2ed2c_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/41697300a4c643d089784b8688b2ed2c_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>41697300a4c643d089784b8688b2ed2c</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/66e3384074574d58ba6e9d6969f6eae0_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/66e3384074574d58ba6e9d6969f6eae0_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/66e3384074574d58ba6e9d6969f6eae0_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/66e3384074574d58ba6e9d6969f6eae0_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>66e3384074574d58ba6e9d6969f6eae0</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1414092814104f0d841da6fe02f67c97_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1414092814104f0d841da6fe02f67c97_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1414092814104f0d841da6fe02f67c97_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/1414092814104f0d841da6fe02f67c97_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>1414092814104f0d841da6fe02f67c97</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6382d8d3bd054e05b4d8fc97e15e86af_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6382d8d3bd054e05b4d8fc97e15e86af_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6382d8d3bd054e05b4d8fc97e15e86af_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6382d8d3bd054e05b4d8fc97e15e86af_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>6382d8d3bd054e05b4d8fc97e15e86af</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/9580f0eb13814a93985ebc7c051fc910_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/9580f0eb13814a93985ebc7c051fc910_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/9580f0eb13814a93985ebc7c051fc910_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/9580f0eb13814a93985ebc7c051fc910_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>9580f0eb13814a93985ebc7c051fc910</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/675a63829c2f475da42b187cc86d7ea0_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/675a63829c2f475da42b187cc86d7ea0_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/675a63829c2f475da42b187cc86d7ea0_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/675a63829c2f475da42b187cc86d7ea0_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>675a63829c2f475da42b187cc86d7ea0</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/4a72d39a88264d02af6dde464bbcbb5c_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/4a72d39a88264d02af6dde464bbcbb5c_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/4a72d39a88264d02af6dde464bbcbb5c_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/4a72d39a88264d02af6dde464bbcbb5c_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>4a72d39a88264d02af6dde464bbcbb5c</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/0e07ba9a139b4346a302b17aa85f2ee4_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/0e07ba9a139b4346a302b17aa85f2ee4_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/0e07ba9a139b4346a302b17aa85f2ee4_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/0e07ba9a139b4346a302b17aa85f2ee4_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>0e07ba9a139b4346a302b17aa85f2ee4</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6d0e0cd1b1314c4badfcceb5ccbcb5d5_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6d0e0cd1b1314c4badfcceb5ccbcb5d5_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6d0e0cd1b1314c4badfcceb5ccbcb5d5_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/6d0e0cd1b1314c4badfcceb5ccbcb5d5_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>6d0e0cd1b1314c4badfcceb5ccbcb5d5</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/27c79cd96eba4561ab037d01be8828ec_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/27c79cd96eba4561ab037d01be8828ec_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/27c79cd96eba4561ab037d01be8828ec_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/27c79cd96eba4561ab037d01be8828ec_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>27c79cd96eba4561ab037d01be8828ec</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/dc39444ce3904ea5bca379b188f65ae0_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/dc39444ce3904ea5bca379b188f65ae0_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/dc39444ce3904ea5bca379b188f65ae0_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/dc39444ce3904ea5bca379b188f65ae0_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>dc39444ce3904ea5bca379b188f65ae0</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/da1728266f3149af9d5ac54316d28c8e_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/da1728266f3149af9d5ac54316d28c8e_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/da1728266f3149af9d5ac54316d28c8e_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/da1728266f3149af9d5ac54316d28c8e_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>da1728266f3149af9d5ac54316d28c8e</strong></p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="box p-1">
+          <div class="columns is-multiline is-variable is-1">
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/5907c0fd28aa49daa2887ed2f3c02abb_depth.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/5907c0fd28aa49daa2887ed2f3c02abb_main.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/5907c0fd28aa49daa2887ed2f3c02abb_zoom1.webp" class="clickable-image"></figure></div>
+            <div class="column is-half"><figure class="image is-square"><img src="./static/scenes/city/5907c0fd28aa49daa2887ed2f3c02abb_zoom2.webp" class="clickable-image"></figure></div>
+          </div>
+          <p class="has-text-centered is-size-7 mt-2">Scene ID: <strong>5907c0fd28aa49daa2887ed2f3c02abb</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ####################################################################################################################################################
+#
+#################################################################################################################################################### -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgement</h2>
+        <div class="content has-text-justified">
+          <p>
+            We thank the authors of <a href="https://arxiv.org/abs/2212.08051">Objaverse</a> for releasing their dataset, which made this research possible.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @misc{lee2025nuisceneexploringefficientgeneration,
+        title={NuiScene: Exploring Efficient Generation of Unbounded Outdoor Scenes}, 
+        author={Han-Hung Lee and Qinghong Han and Angel X. Chang},
+        year={2025},
+        eprint={2503.16375},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2503.16375}, 
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. Please check out their great work if you find it helpful as well.
+          </p>
+          <p>
+            Favicon from: <a href="https://www.flaticon.com/free-icons/needle" title="needle icons">Needle icons created by Smashicons - Flaticon</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Reusable modal -->
+<div class="modal" id="image-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image">
+      <img id="modal-img" src="" alt="Expanded image">
+    </p>
+    <p id="modal-caption" class="has-text-centered has-text-white mt-2 is-size-6"></p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<script>
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalCaption = document.getElementById('modal-caption');
+
+  // Click handler for all preview images
+  document.querySelectorAll('.clickable-image').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.classList.add('is-active');
+      modalImg.src = img.src;
+      modalCaption.textContent = img.getAttribute('data-caption') || '';
+    });
+  });
+
+  // Close modal on background or button click
+  modal.querySelector('.modal-background').addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  });
+
+  modal.querySelector('.modal-close').addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  });
+</script>
+
+</body>
+</html>

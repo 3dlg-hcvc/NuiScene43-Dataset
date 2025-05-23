@@ -1,0 +1,5 @@
+.DS_store
+.idea
+
+docs/gen_vis.py
+docs/convert_webp.py
