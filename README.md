@@ -83,6 +83,10 @@ The json configuration files has the below format:
 ```
 Here the keys (ie. "3b61335c2a004a9ea31c8dab59471222") indicates the scene the sample from and the values (ie. 100000) indicate the number of quad chunks to sample
 
+## TODO
+
+- [ ] Add taichi mesh2sdf tool and scale labels for each scene.
+
 ## Citation
 
 ```

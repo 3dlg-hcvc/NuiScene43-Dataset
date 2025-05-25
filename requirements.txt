@@ -8,6 +8,7 @@ xatlas
 pillow
 einops
 taichi
+open3d
 trimesh
 lightning
 matplotlib
