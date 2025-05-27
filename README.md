@@ -43,6 +43,8 @@ python utils/vis_data.py --scene_id=857673bc44c8411ca8aca7cab3be7091
 python utils/vis_data.py --scene_id=5f1822bbb40c43b097c4c98ecc697ed2_0
 ```
 
+**[Note]** You can find our tool for converting from mesh to occupancy [here](https://github.com/hanhung/taichi_mesh2sdf).
+
 ## Sample h5 for Training
 
 1. Sample chunks from the scenes. In the ***metadata*** folder you can find the scene configs we used for 1_scene, 4_scene and 13_scene scenarios (which scenes are used as well as number of chunks to sample from the scenes). Note that you can run the below four python lines in 4 terminal sessions. This allows the sampling to be parallelized. The output chunks will be in ***data/test_scene_cs100***.
@@ -82,10 +84,6 @@ The json configuration files has the below format:
 }
 ```
 Here the keys (ie. "3b61335c2a004a9ea31c8dab59471222") indicates the scene the sample from and the values (ie. 100000) indicate the number of quad chunks to sample
-
-## TODO
-
-- [ ] Add taichi mesh2sdf tool and scale labels for each scene.
 
 ## Citation
 
