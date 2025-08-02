@@ -85,6 +85,19 @@ The json configuration files has the below format:
 ```
 Here the keys (ie. "3b61335c2a004a9ea31c8dab59471222") indicates the scene the sample from and the values (ie. 100000) indicate the number of quad chunks to sample
 
+## Notes
+
+### Sample masks
+
+We caculate the sample masks (alpha and depth variation maps) using the converted sdf from our [tool](https://github.com/hanhung/taichi_mesh2sdf). Note this is before we performed the ground fixing, as the ground fixing would create ground around the edges that were originally empty and we don't want to sample from these regions.
+
+1. Run the example from our [tool](https://github.com/hanhung/taichi_mesh2sdf). You should obtain a ***3b61335c2a004a9ea31c8dab59471222.sdf_res1162.npz*** file. Move it into this repo.
+2. Generate the alpha, depth variation maps.
+```
+python utils/get_sample_mask.py
+```
+3. You should see the sampled scene maps in ***data/scene_mask/3b61335c2a004a9ea31c8dab59471222***.
+
 ## Citation
 
 ```
