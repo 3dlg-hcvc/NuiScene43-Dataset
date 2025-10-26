@@ -101,14 +101,13 @@ python utils/get_sample_mask.py
 ## Citation
 
 ```
-@misc{lee2025nuisceneexploringefficientgeneration,
-      title={NuiScene: Exploring Efficient Generation of Unbounded Outdoor Scenes}, 
-      author={Han-Hung Lee and Qinghong Han and Angel X. Chang},
-      year={2025},
-      eprint={2503.16375},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2503.16375}, 
+@InProceedings{Lee_2025_ICCV,
+    author    = {Lee, Han-Hung and Han, Qinghong and Chang, Angel X.},
+    title     = {NuiScene: Exploring Efficient Generation of Unbounded Outdoor Scenes},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2025},
+    pages     = {26509-26518}
 }
 ```
 
